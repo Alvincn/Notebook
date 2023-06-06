@@ -1065,9 +1065,29 @@ module.exports = {
    1. 地址干净，美观 。
    2. 兼容性和hash模式相比略差。
    3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
-	
-	  
-	
+
+
+想要使用history，只能后端进行配合
+使用node的话，使用`connect-history-api-fallback`这个中间件就可以解决这种问题
+
+1. 安装：`cnpm i connect-history-api-fallback`
+2. 引入：`const history = require("connect-history-api-fallback")`
+3. 使用（必须在使用静态资源之前使用）：`app.use(history())`
+
+这样就好啦嘿嘿嘿
+
+## 运行打包后的index.html
+
+在页面打包完成后，index.html在本地是无法打开的，需要在服务端环境
+
+在同目录文件夹下新建 static 文件夹，将打包后的 html, css, js放入这个文件夹
+
+这里搭建一个服务端，使用`app.use(express.static(__dirname+"/static"))`
+
+访问路径
+
+
+
 # 构建Vue项目
 
 ## 使用Webpack构建Vue项目

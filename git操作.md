@@ -89,3 +89,23 @@ node*/
 
 `git pull`
 
+# 遇到的异常
+
+##  文件夹异常
+
+描述：上传的文件夹是一个带箭头的文件夹并且无法打开
+
+原因：原来是因为这个文件夹里面有.git隐藏文件，github 就将他视为一个子系统模块了。
+
+解决办法：
+
+1、删除文件夹里面的.git文件夹
+
+2、执行git rm --cached [文件夹名]
+
+3、执行git add [文件夹名]
+
+4、执行git [commit](https://so.csdn.net/so/search?q=commit&spm=1001.2101.3001.7020) -m "msg"
+
+5、执行git push origin [branch_name] 
+
